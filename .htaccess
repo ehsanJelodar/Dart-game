@@ -1,0 +1,20 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+
+DirectoryIndex index.php
+order deny,allow
+
+AddDefaultCharset utf-8
+#IndexIgnore *
+IndexIgnore admin includes
+#Options -Indexes
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+    RewriteEngine on
+RewriteBase /dart_game
+
+    #Ie user
+     RewriteRule ([^/]*)IE$  ieuser.php [L,QSA]
+</IfModule>
